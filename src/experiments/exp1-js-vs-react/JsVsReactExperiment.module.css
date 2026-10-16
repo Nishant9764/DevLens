@@ -1,0 +1,258 @@
+/* src/experiments/exp1-js-vs-react/JsVsReactExperiment.module.css */
+.controlGroup {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.controlLabel {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  margin-right: 2px;
+}
+
+.pillBtn {
+  font-size: 11.5px;
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-surface-1);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+}
+
+.pillActive {
+  background: var(--accent-react-dim);
+  border-color: var(--accent-react);
+  color: var(--text-primary);
+}
+
+.previewGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  height: 100%;
+}
+
+.counterCard {
+  background: var(--bg-surface-1);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tagJs {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+  background: var(--accent-js-dim);
+  color: var(--accent-js);
+  border: 1px solid rgba(250, 204, 21, 0.3);
+}
+
+.tagReact {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+  background: var(--accent-react-dim);
+  color: var(--accent-react);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+}
+
+.metaStat {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.counterDisplay {
+  text-align: center;
+  margin: 8px 0;
+}
+
+.domNodeLabel {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  color: var(--text-muted);
+}
+
+.countNumber {
+  font-family: var(--font-mono);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-top: 2px;
+  border-radius: var(--radius-sm);
+  display: inline-block;
+  padding: 2px 14px;
+}
+
+@keyframes pulseJs {
+  0% { background-color: rgba(250, 204, 21, 0.35); }
+  100% { background-color: transparent; }
+}
+
+@keyframes pulseReact {
+  0% { background-color: rgba(56, 189, 248, 0.35); }
+  100% { background-color: transparent; }
+}
+
+.flashJs {
+  animation: pulseJs 0.6s ease-out;
+}
+
+.flashReact {
+  animation: pulseReact 0.6s ease-out;
+}
+
+.buttonRow {
+  display: flex;
+  gap: 8px;
+}
+
+.btnJs, .btnReact, .btnSecondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.btnJs {
+  flex: 1;
+  background: var(--accent-js-dim);
+  color: var(--accent-js);
+  border: 1px solid rgba(250, 204, 21, 0.35);
+}
+
+.btnReact {
+  flex: 1;
+  background: var(--accent-react-dim);
+  color: var(--accent-react);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+}
+
+.btnSecondary {
+  background: var(--bg-surface-2);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
+}
+
+.visualizerWrap {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.emptyPrompt {
+  text-align: center;
+  color: var(--text-secondary);
+  padding: 24px;
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--radius-md);
+}
+
+.pipelineTrack {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pipelineHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.traceAction {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--text-secondary);
+}
+
+.flowRow {
+  display: flex;
+  align-items: stretch;
+  gap: 8px;
+}
+
+.flowStep {
+  flex: 1;
+  background: var(--bg-surface-1);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.stepHighlightJs {
+  border-color: var(--accent-js);
+  background: var(--accent-js-dim);
+}
+
+.stepHighlightReact {
+  border-color: var(--accent-react);
+  background: var(--accent-react-dim);
+}
+
+.stepNum {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  color: var(--text-muted);
+}
+
+.stepTitle {
+  font-weight: 600;
+  font-size: 12.5px;
+  color: var(--text-primary);
+}
+
+.flowStep code {
+  font-size: 11px;
+  color: var(--text-secondary);
+  background: var(--bg-canvas);
+  padding: 3px 6px;
+  border-radius: var(--radius-sm);
+  margin-top: auto;
+}
+
+.arrow {
+  align-self: center;
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+.explanationGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.expBlock h4 {
+  font-size: 12.5px;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.expBlock p {
+  font-size: 12px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
