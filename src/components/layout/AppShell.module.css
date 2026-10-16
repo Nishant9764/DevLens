@@ -1,0 +1,116 @@
+/* src/components/layout/AppShell.module.css */
+.workspaceRoot {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background-color: var(--bg-canvas);
+}
+
+.mainColumn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.topBar {
+  height: var(--header-height);
+  padding: 0 16px;
+  background-color: var(--bg-surface-1);
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+
+.titleGroup {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.badge {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  padding: 2px 7px;
+  border-radius: var(--radius-sm);
+  background-color: var(--bg-surface-3);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
+}
+
+.title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.labGrid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: minmax(340px, 44%) 1fr;
+  grid-template-rows: minmax(190px, 34%) minmax(220px, 40%) minmax(130px, 26%);
+  grid-template-areas:
+    "code preview"
+    "code visualizer"
+    "code explanation";
+  gap: 1px;
+  background-color: var(--border-subtle);
+  min-height: 0;
+}
+
+.paneCode,
+.panePreview,
+.paneVisualizer,
+.paneExplanation {
+  background-color: var(--bg-canvas);
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  min-width: 0;
+}
+
+.paneCode { grid-area: code; }
+.panePreview { grid-area: preview; }
+.paneVisualizer { grid-area: visualizer; }
+.paneExplanation { grid-area: explanation; }
+
+.paneHeader {
+  height: 30px;
+  padding: 0 12px;
+  background-color: var(--bg-surface-1);
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+
+.paneLabel {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+}
+
+.paneBody {
+  flex: 1;
+  overflow: auto;
+  padding: 14px;
+}
+
+/* Responsive breakpoint for smaller viewports */
+@media (max-width: 960px) {
+  .workspaceRoot {
+    flex-direction: column;
+    overflow-y: auto;
+  }
+  .labGrid {
+    display: flex;
+    flex-direction: column;
+    overflow-y: visible;
+  }
+}
