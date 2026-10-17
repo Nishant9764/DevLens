@@ -1,12 +1,21 @@
 // src/components/layout/Sidebar.jsx
 import React from "react";
-import { FlaskConical, Cpu, Layers, Code2 } from "lucide-react";
+import {
+  FlaskConical,
+  Cpu,
+  Layers,
+  Code2,
+  Boxes,
+  Activity,
+} from "lucide-react";
 import styles from "./Sidebar.module.css";
 
 const ICONS = {
   "js-vs-react": Code2,
   "render-visualizer": Cpu,
   "component-explorer": Layers,
+  "state-batching": Boxes,
+  "effect-lifecycle": Activity,
 };
 
 export function Sidebar({ experiments, activeId, onSelect }) {
@@ -48,7 +57,7 @@ export function Sidebar({ experiments, activeId, onSelect }) {
       <div className={styles.sidebarFooter}>
         <div className={styles.telemetryStatus}>
           <span className={styles.statusDot} />
-          <span>Telemetry Engine Ready</span>
+          <span>5 Modules Active</span>
         </div>
       </div>
     </aside>
