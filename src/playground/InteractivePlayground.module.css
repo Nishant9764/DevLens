@@ -1,0 +1,651 @@
+/* src/playground/InteractivePlayground.module.css */
+.playgroundContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  background: radial-gradient(circle at top right, #1e1b4b, #0b0d12 60%);
+  color: var(--text-primary);
+  overflow: hidden;
+}
+
+.journeyHeader {
+  padding: 12px 20px;
+  background: rgba(17, 20, 28, 0.9);
+  border-bottom: 1px solid var(--border-strong);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.brandBlock {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sparkleLogo {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #38bdf8, #818cf8);
+  color: #0b0d12;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mainTitle {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.subTitle {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.missionTabs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.missionTab {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 12px;
+  border-radius: 8px;
+  background: var(--bg-surface-2);
+  border: 1px solid var(--border-subtle);
+  text-align: left;
+  transition: all 0.2s ease;
+}
+
+.missionTab:hover {
+  border-color: var(--accent-react);
+}
+
+.missionActive {
+  background: rgba(56, 189, 248, 0.15);
+  border-color: var(--accent-react);
+  transform: translateY(-1px);
+}
+
+.tabText {
+  display: flex;
+  flex-direction: column;
+}
+
+.tabTitle {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.tabSub {
+  font-size: 10.5px;
+  color: var(--text-secondary);
+}
+
+.doneIcon {
+  color: var(--accent-commit);
+}
+
+.modeToggleBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 12px;
+  border-radius: 6px;
+  background: var(--bg-surface-3);
+  border: 1px solid var(--border-strong);
+  font-size: 12px;
+  color: var(--text-primary);
+}
+
+.stageArea {
+  flex: 1;
+  padding: 18px 22px;
+  overflow-y: auto;
+}
+
+.missionWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 1360px;
+  margin: 0 auto;
+}
+
+.storyBanner {
+  background: rgba(30, 41, 59, 0.65);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  border-radius: 10px;
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.storyBanner h2 {
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+.storyBanner p {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.nextMissionBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 14px;
+  border-radius: 8px;
+  background: var(--accent-react);
+  color: #0b0d12;
+  font-weight: 600;
+  font-size: 12.5px;
+  white-space: nowrap;
+}
+
+.threeColStage {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr 1.15fr;
+  gap: 16px;
+}
+
+.panelCard {
+  background: var(--bg-surface-1);
+  border: 1px solid var(--border-subtle);
+  border-radius: 10px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.panelHeaderFlex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.panelTitle {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--accent-react);
+  letter-spacing: 0.05em;
+}
+
+.helperHint {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.brickList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.draggableBrick {
+  background: var(--bg-surface-2);
+  border: 1px solid var(--border-strong);
+  border-left-width: 4px;
+  border-radius: 8px;
+  padding: 10px 12px;
+  cursor: grab;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  transition: transform 0.15s ease;
+}
+
+.draggableBrick:hover {
+  transform: scale(1.02);
+}
+
+.brickTag {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.brickDesc {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.dragBadge {
+  font-size: 10.5px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.dropZoneActive {
+  border: 2px dashed var(--accent-react);
+  background: rgba(56, 189, 248, 0.08);
+}
+
+.emptyDropBox {
+  flex: 1;
+  min-height: 220px;
+  border: 2px dashed var(--border-strong);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+}
+
+.assembledApp {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.assembledItem {
+  border: 1px solid var(--border-strong);
+  border-radius: 8px;
+  padding: 8px;
+  background: var(--bg-canvas);
+  animation: popIn 0.25s ease-out;
+}
+
+@keyframes popIn {
+  0% { transform: scale(0.95); opacity: 0.4; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.componentWrapperLabel {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  color: var(--accent-react);
+  margin-bottom: 4px;
+}
+
+.mockNav {
+  background: #1e293b;
+  padding: 8px 12px;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 12.5px;
+}
+
+.mockLinks {
+  color: var(--text-secondary);
+}
+
+.mockCard {
+  background: rgba(168, 85, 247, 0.15);
+  border: 1px solid rgba(168, 85, 247, 0.4);
+  padding: 10px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.avatar {
+  font-size: 24px;
+}
+
+.subText {
+  font-size: 11px;
+  color: var(--text-secondary);
+}
+
+.mockLikeBtn {
+  width: 100%;
+  padding: 8px;
+  border-radius: 6px;
+  background: rgba(244, 63, 94, 0.2);
+  border: 1px solid #f43f5e;
+  color: #fda4af;
+  font-size: 12.5px;
+}
+
+.clearBtn {
+  font-size: 11px;
+  color: var(--text-muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.codeBoxLabel {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+.outputPre, .outputPreCss {
+  background: var(--bg-canvas);
+  border: 1px solid var(--border-subtle);
+  border-radius: 6px;
+  padding: 8px;
+  font-size: 11.5px;
+  overflow-x: auto;
+  color: #34d399;
+}
+
+.outputPreCss {
+  color: #38bdf8;
+}
+
+/* Mission 2 Conveyor Machine */
+.machineControls {
+  display: flex;
+  gap: 20px;
+  background: var(--bg-surface-1);
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--border-subtle);
+  flex-wrap: wrap;
+}
+
+.inputGroup {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+}
+
+.chip, .activeChip {
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  border: 1px solid var(--border-strong);
+  background: var(--bg-surface-2);
+}
+
+.activeChip {
+  background: var(--accent-react-dim);
+  border-color: var(--accent-react);
+  color: var(--accent-react);
+}
+
+.conveyorGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.stationCard {
+  background: var(--bg-surface-1);
+  border: 1px solid var(--border-subtle);
+  border-radius: 10px;
+  padding: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.stationActive {
+  border-color: var(--accent-react);
+  background: rgba(56, 189, 248, 0.1);
+  transform: translateY(-2px);
+}
+
+.stationTop {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+.activePulse {
+  color: var(--accent-commit);
+  font-weight: 700;
+}
+
+.stationCard h3 {
+  font-size: 13.5px;
+  margin-bottom: 4px;
+}
+
+.stationCard p {
+  font-size: 11.5px;
+  color: var(--text-secondary);
+}
+
+.xrayStage {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 16px;
+}
+
+.xrayCodeSide, .xrayPreviewSide {
+  background: var(--bg-surface-1);
+  border: 1px solid var(--border-subtle);
+  border-radius: 10px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.bigPre {
+  background: var(--bg-canvas);
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: #e2e8f0;
+  overflow-x: auto;
+}
+
+.vipPreview {
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  margin: 12px 0;
+  transition: all 0.3s ease;
+}
+
+.theme_gold {
+  background: rgba(250, 204, 21, 0.15);
+  border: 2px solid #facc15;
+  color: #fef08a;
+}
+
+.theme_cyber {
+  background: rgba(56, 189, 248, 0.15);
+  border: 2px solid #38bdf8;
+  color: #bae6fd;
+}
+
+.theme_emerald {
+  background: rgba(52, 211, 153, 0.15);
+  border: 2px solid #34d399;
+  color: #a7f3d0;
+}
+
+.conveyorButtons {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.stepActionBtn, .stepActionPrimary {
+  flex: 1;
+  padding: 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  border: 1px solid var(--border-strong);
+  background: var(--bg-surface-2);
+}
+
+.stepActionPrimary {
+  background: var(--accent-react-dim);
+  border-color: var(--accent-react);
+  color: var(--accent-react);
+}
+
+/* Mission 3 Reconciler Game */
+.gameScoreBar {
+  background: var(--bg-surface-2);
+  border: 1px solid var(--border-strong);
+  border-radius: 8px;
+  padding: 10px 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.feedbackBanner {
+  color: var(--accent-react);
+  font-size: 12.5px;
+}
+
+.diffGameGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.treeVisual {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 10px;
+}
+
+.rootPill {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.treeChildStatic, .treeChildInteractive {
+  margin-left: 20px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: var(--bg-surface-2);
+  border: 1px solid var(--border-strong);
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.treeChildInteractive:hover {
+  border-color: var(--accent-react);
+}
+
+.nodeCorrect {
+  background: rgba(52, 211, 153, 0.2);
+  border-color: var(--accent-commit);
+  color: var(--accent-commit);
+}
+
+.nodeWrong {
+  background: rgba(248, 113, 113, 0.2);
+  border-color: var(--accent-danger);
+}
+
+.clickPrompt {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+/* Mission 4 Lifecycle Pet */
+.lifecycleButtons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.lifeBtnMount, .lifeBtnUpdate, .lifeBtnUnmount {
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 12.5px;
+  text-align: left;
+  border: 1px solid var(--border-strong);
+}
+
+.lifeBtnMount {
+  background: rgba(52, 211, 153, 0.15);
+  border-color: var(--accent-commit);
+  color: var(--accent-commit);
+}
+
+.lifeBtnUpdate {
+  background: rgba(56, 189, 248, 0.15);
+  border-color: var(--accent-react);
+  color: var(--accent-react);
+}
+
+.lifeBtnUnmount {
+  background: rgba(244, 114, 182, 0.15);
+  border-color: var(--accent-mutation);
+  color: var(--accent-mutation);
+}
+
+.lifeBtnMount:disabled, .lifeBtnUpdate:disabled, .lifeBtnUnmount:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.petArena {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 180px;
+}
+
+.deadZone {
+  padding: 24px;
+  border: 1px dashed var(--border-strong);
+  border-radius: 8px;
+  color: var(--text-muted);
+}
+
+.petBox {
+  text-align: center;
+  animation: popIn 0.3s ease;
+}
+
+.petEmoji {
+  font-size: 48px;
+  margin-bottom: 6px;
+}
+
+.energyPill {
+  display: inline-block;
+  margin-top: 6px;
+  padding: 3px 10px;
+  border-radius: 12px;
+  background: var(--accent-react-dim);
+  color: var(--accent-react);
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+
+.lifeLogList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.lifeLogItem {
+  padding: 8px 10px;
+  background: var(--bg-surface-2);
+  border-left: 3px solid var(--accent-react);
+  border-radius: 4px;
+  font-size: 12px;
+}
