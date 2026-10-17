@@ -1,3 +1,4 @@
+// src/experiments/index.js
 export const EXPERIMENTS = [
   {
     id: "js-vs-react",
@@ -22,5 +23,21 @@ export const EXPERIMENTS = [
     subtitle: "Parent-child hierarchies and props data flow",
     status: "ready",
     badge: "Architecture",
+  },
+  {
+    id: "state-batching",
+    number: "04",
+    title: "State as a Snapshot & Batching",
+    subtitle: "Why 3 setCount(count + 1) calls only add 1",
+    status: "ready",
+    badge: "State Mechanics",
+  },
+  {
+    id: "effect-lifecycle",
+    number: "05",
+    title: "useEffect & Cleanup Lifecycle",
+    subtitle: "Dependency arrays, post-commit effects, and cleanup",
+    status: "ready",
+    badge: "Lifecycle",
   },
 ];
