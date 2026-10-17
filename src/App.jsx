@@ -1,5 +1,5 @@
 // src/App.jsx
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { EXPERIMENTS } from "./experiments";
 import { AppShell } from "./components/layout/AppShell";
 import { Sidebar } from "./components/layout/Sidebar";
@@ -9,7 +9,8 @@ import { useRenderVisualizerExperiment } from "./experiments/exp2-render-pipelin
 import { useComponentExplorerExperiment } from "./experiments/exp3-component-explorer/ComponentExplorerExperiment";
 import { useStateBatchingExperiment } from "./experiments/exp4-state-batching/StateBatchingExperiment";
 import { useEffectLifecycleExperiment } from "./experiments/exp5-effect-lifecycle/EffectLifecycleExperiment";
-import { RotateCcw } from "lucide-react";
+import { InteractivePlayground } from "./playground/InteractivePlayground";
+import { Sparkles, RotateCcw } from "lucide-react";
 import "./styles/global.css";
 
 function ActiveLabSession({ activeId }) {
@@ -31,22 +32,16 @@ function ActiveLabSession({ activeId }) {
 }
 
 export default function App() {
+  // Default to the beginner-friendly gamified Visual Quest!
+  const [viewMode, setViewMode] = useState("quest"); // 'quest' | 'lab'
   const [activeId, setActiveId] = useState("js-vs-react");
   const [sessionKey, setSessionKey] = useState(0);
 
-  // Keyboard shortcut Alt + 1..5 to jump between experiments
-  useEffect(() => {
-    const onKeyDown = (e) => {
-      if (e.altKey) {
-        const index = Number(e.key) - 1;
-        if (EXPERIMENTS[index]) {
-          setActiveId(EXPERIMENTS[index].id);
-        }
-      }
-    };
-    window.addEventListener("keydown", onKeyDown);
-    return () => window.removeEventListener("keydown", onKeyDown);
-  }, []);
+  if (viewMode === "quest") {
+    return (
+      <InteractivePlayground onSwitchToProMode={() => setViewMode("lab")} />
+    );
+  }
 
   const activeExperimentMeta =
     EXPERIMENTS.find((item) => item.id === activeId) || EXPERIMENTS[0];
@@ -57,6 +52,7 @@ export default function App() {
       activeId={activeId}
       onSelectExperiment={setActiveId}
       onResetExperiment={() => setSessionKey((k) => k + 1)}
+      onSwitchToQuest={() => setViewMode("quest")}
       experimentMeta={activeExperimentMeta}
     />
   );
@@ -66,21 +62,30 @@ function LabRunner({
   activeId,
   onSelectExperiment,
   onResetExperiment,
+  onSwitchToQuest,
   experimentMeta,
 }) {
   const activeContent = ActiveLabSession({ activeId });
 
   const headerActions = (
     <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-      <span
+      <button
+        onClick={onSwitchToQuest}
         style={{
-          fontFamily: "var(--font-mono)",
-          fontSize: "11px",
-          color: "var(--text-muted)",
+          display: "inline-flex",
+          alignItems: "center",
+          gap: "6px",
+          padding: "4px 10px",
+          borderRadius: "var(--radius-sm)",
+          background: "var(--accent-react-dim)",
+          border: "1px solid var(--accent-react)",
+          color: "var(--accent-react)",
+          fontSize: "11.5px",
+          fontWeight: 600,
         }}
       >
-        Shortcut: Alt + 1–5
-      </span>
+        <Sparkles size={13} /> Back to Visual Quest Mode
+      </button>
       <button
         onClick={onResetExperiment}
         style={{
@@ -94,9 +99,8 @@ function LabRunner({
           color: "var(--text-secondary)",
           fontSize: "11.5px",
         }}
-        title="Reset current experiment state"
       >
-        <RotateCcw size={12} /> Reset Lab State
+        <RotateCcw size={12} /> Reset
       </button>
     </div>
   );
