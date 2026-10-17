@@ -1,0 +1,226 @@
+/* src/experiments/exp5-effect-lifecycle/EffectLifecycleExperiment.module.css */
+.controlsRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.controlItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.controlLabel {
+  font-size: 11.5px;
+  color: var(--text-secondary);
+}
+
+.roomBtn {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-surface-1);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+}
+
+.roomBtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.roomActive {
+  background: var(--accent-react-dim);
+  border-color: var(--accent-react);
+  color: var(--accent-react);
+}
+
+.mountBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11.5px;
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-surface-3);
+  border: 1px solid var(--border-strong);
+  color: var(--text-primary);
+}
+
+.previewArea {
+  height: 100%;
+  display: flex;
+}
+
+.roomCard {
+  flex: 1;
+  background: var(--bg-surface-1);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.roomHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.liveIndicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--accent-commit);
+  font-size: 12.5px;
+}
+
+.depBadge {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-secondary);
+  background: var(--bg-surface-2);
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+}
+
+.roomBody {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.statLine {
+  font-size: 13px;
+  color: var(--text-primary);
+}
+
+.statHint {
+  font-size: 11.5px;
+  color: var(--text-muted);
+}
+
+.draftBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 12px;
+  border-radius: var(--radius-sm);
+  background: var(--accent-react-dim);
+  border: 1px solid var(--accent-react);
+  color: var(--accent-react);
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.unmountedCard {
+  flex: 1;
+  border: 1px dashed var(--accent-danger);
+  background: rgba(248, 113, 113, 0.06);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  color: var(--text-secondary);
+}
+
+.remountBtn {
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  background: var(--accent-commit-dim);
+  border: 1px solid var(--accent-commit);
+  color: var(--accent-commit);
+  font-weight: 500;
+  font-size: 12px;
+}
+
+.timelineContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  height: 100%;
+}
+
+.timelineHeader {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  color: var(--text-muted);
+}
+
+.depWatch {
+  color: var(--accent-react);
+}
+
+.logList {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  overflow-y: auto;
+}
+
+.logRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 10px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-surface-1);
+  font-size: 12px;
+}
+
+.rowEffect {
+  border-left: 3px solid var(--accent-commit);
+}
+
+.rowCleanup {
+  border-left: 3px solid var(--accent-mutation);
+}
+
+.rowSkip {
+  border-left: 3px solid var(--accent-js);
+}
+
+.phaseBadge {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  font-weight: 600;
+  min-width: 125px;
+  color: var(--text-primary);
+}
+
+.logDetail {
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+}
+
+.effectExplanation {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.effectExplanation h4 {
+  font-size: 12.5px;
+  margin-bottom: 4px;
+}
+
+.effectExplanation p {
+  font-size: 12px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
