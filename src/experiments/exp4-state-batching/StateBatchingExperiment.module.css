@@ -1,0 +1,241 @@
+/* src/experiments/exp4-state-batching/StateBatchingExperiment.module.css */
+.controlBar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.modeBtn {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  padding: 4px 9px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-surface-1);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+}
+
+.activeWarn {
+  background: var(--accent-js-dim);
+  border-color: var(--accent-js);
+  color: var(--accent-js);
+}
+
+.activeSuccess {
+  background: var(--accent-commit-dim);
+  border-color: var(--accent-commit);
+  color: var(--accent-commit);
+}
+
+.previewWrap {
+  height: 100%;
+  display: flex;
+}
+
+.scoreCard {
+  flex: 1;
+  background: var(--bg-surface-1);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.scoreHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11.5px;
+}
+
+.snapshotBadge {
+  font-family: var(--font-mono);
+  color: var(--text-secondary);
+}
+
+.renderBadge {
+  font-family: var(--font-mono);
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  background: var(--accent-react-dim);
+  color: var(--accent-react);
+}
+
+.bigScoreDisplay {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 6px 0;
+}
+
+.scoreNumber {
+  font-family: var(--font-mono);
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--text-primary);
+  background: var(--bg-canvas);
+  padding: 2px 16px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-subtle);
+}
+
+.scoreCaption {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.actionRow {
+  display: flex;
+  gap: 8px;
+}
+
+.triggerBtn {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 7px 12px;
+  border-radius: var(--radius-sm);
+  background: var(--accent-react-dim);
+  border: 1px solid var(--accent-react);
+  color: var(--accent-react);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.resetBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 7px 12px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-surface-2);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  font-size: 12px;
+}
+
+.queueVisualizer {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+
+.emptyState {
+  padding: 20px;
+  text-align: center;
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--radius-md);
+  color: var(--text-secondary);
+}
+
+.queueHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-secondary);
+}
+
+.batchTag {
+  background: var(--accent-commit-dim);
+  color: var(--accent-commit);
+  padding: 2px 7px;
+  border-radius: var(--radius-sm);
+}
+
+.queueSteps {
+  display: flex;
+  align-items: stretch;
+  gap: 6px;
+}
+
+.queueItem {
+  flex: 1;
+  background: var(--bg-surface-1);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+.qIndex {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-muted);
+}
+
+.qCode {
+  font-size: 12px;
+  color: var(--accent-react);
+  background: var(--bg-canvas);
+  padding: 4px 6px;
+  border-radius: var(--radius-sm);
+}
+
+.qResult {
+  font-size: 11px;
+  color: var(--text-secondary);
+}
+
+.qArrow {
+  align-self: center;
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+.finalCommitBox {
+  flex: 1;
+  background: var(--accent-react-dim);
+  border: 1px solid var(--accent-react);
+  border-radius: var(--radius-md);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.finalNumber {
+  font-family: var(--font-mono);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.commitSub {
+  font-size: 10.5px;
+  color: var(--text-secondary);
+}
+
+.explanationCols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.explanationCols h4 {
+  font-size: 12.5px;
+  margin-bottom: 4px;
+}
+
+.explanationCols p {
+  font-size: 12px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
